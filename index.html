@@ -261,20 +261,12 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 <h2 id="setup">Setup</h2>
 
 <p>
-  To participate in a
-  {% if page.carpentry == "swc" %}
-  Software Carpentry
-  {% elsif page.carpentry == "dc" %}
-  Data Carpentry
-  {% elsif page.carpentry == "lc" %}
-  Library Carpentry
-  {% endif %}
-  workshop,
+  To participate in this workshop
   you will need access to the software described below.
   In addition, you will need an up-to-date web browser.
 </p>
 <p>
-  We maintain a list of common issues that occur during installation as a reference for instructors
+  Software Carpentry maintains a list of common issues that occur during installation as a reference for instructors
   that may be useful on the
   <a href = "{{site.swc_github}}/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
 </p>
@@ -368,6 +360,48 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
     </div>
   </div>
 </div> <!-- End of 'shell' section. -->
+
+<div id="qgis"> <!-- Start of 'QGIS/GDAL' section. -->
+  <h3>QGIS and GDAL</h3>
+
+  <p>
+    QGIS is a free and open-source geospatial software, with access to hundreds of plugins for vector and raster analysis. The core functions of QGIS employ the Geospatial Data Abstraction Library (GDAL). These GDAL commands can also be run from the command line in bash scripts to efficiently process data.
+  </p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h4 id="qgis-windows">Windows</h4>
+      <ol>
+        <li>Download the QGIS for Windows <a href="http://qgis.org/downloads/QGIS-OSGeo4W-2.18.13-1-Setup-x86_64.exe">installer</a>.</li>
+        <li>Run the installer and accept the defaults. Then, follow the steps below:
+          <ol>
+            <!-- Connecting GDAL to GitBash -->
+            <li> <code> cd ~ </code> to your home directory </li>
+            <li> Create or edit your .bash_profile in your home directory to include the following line <code>export PATH="$PATH:/c/Program Files/QGIS 2.18/bin"</code> </li>
+            <li> Close your terminal and re-open another one so that the updated .bash_profile file is loaded</li>
+            <li> Run <code>gdalinfo</code> to check if you can run GDAL commands from GitBash. You should see an output describing usage. If you get a "Command not found error", you may need to edit your .bash_profile to specify a different path to the QGIS 2.18/bin folder</li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+    <div class="col-md-4">
+      <h4 id="qgis-macosx">Mac OS X</h4>
+      <ol>
+        <li>Download the QGIS for Mac OS X <a href="http://www.kyngchaos.com/files/software/qgis/QGIS-2.18.9-1.dmg">installer. <a href="http://www.kyngchaos.com/software/qgis">Source at www.kyngchaos.com</a>.</li>
+        <li>Run the installer and accept the defaults. Then, follow the steps below:
+          <ol>
+            <!-- Connecting GDAL to GitBash -->
+            <li> <code> cd ~ </code> to your home directory </li>
+            <li> Create or edit your .bash_profile in your home directory to include the following line <code>export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH</code> </li>
+            <li> Close your terminal and re-open another one so that the updated .bash_profile file is loaded</li>
+            <li> Run <code>gdalinfo</code> to check if you can run GDAL commands from Terminal. You should see an output describing usage. If you get a "Command not found error", you may need to edit your .bash_profile to specify a different path to the GDAL.framework/Programs folder</li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+    </div>
+  </div>
+</div> <!-- End of 'QGIS/GDAL' section. -->
 
 <div id="git"> <!-- Start of 'Git' section. GitHub browser compatability
            is given at https://help.github.com/articles/supported-browsers/-->
